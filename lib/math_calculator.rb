@@ -20,8 +20,10 @@ class MathCalculator
 
   def self.tokenize(str, options={})
     new_str0 = str.gsub(/\s*/,'')
-    new_str1 = new_str0.gsub(/[a-zA-Z]+/,' \0 ')
-    new_str2 = new_str1.gsub(/\d*\.?\d+/,' \0 ')
+    #new_str1 = new_str0.gsub(/[a-zA-Z]+/,' \0 ')
+    new_str1 = new_str0.gsub(/[$?a-zA-Z]+\d*/,' \0 ')
+    #new_str2 = new_str1.gsub(/\d*\.?\d+/,' \0 ')
+    new_str2 = new_str1.gsub(/\b\d*\.?\d+\b/,' \0 ')
     arr1 = new_str2.split(' ')
     new_arr = []
     arr1.each do |token|
